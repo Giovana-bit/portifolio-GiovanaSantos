@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 
 const NAV_ITEMS = [
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projetos', href: '#projetos' },
-  { label: 'Cursos', href: '#cursos' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Sobre', href: 'sobre' },
+  { label: 'Skills', href: 'skills' },
+  { label: 'Projetos', href: 'projetos' },
+  { label: 'Cursos', href: 'cursos' },
+  { label: 'Contato', href: 'contato' },
 ];
 
 export default function Navbar({ theme, toggleTheme }) {
