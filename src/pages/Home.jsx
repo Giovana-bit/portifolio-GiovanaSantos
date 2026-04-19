@@ -9,10 +9,6 @@ import CoursesSection from '../components/portifolio/CoursesSection';
 import ContactSection from '../components/portifolio/ContactSection';
 import Footer from '../components/portifolio/Footer';
 
-const HERO_IMAGE = '/images/hero.png';
-const ABOUT_IMAGE = '/images/about.png';
-const PROJECTS_IMAGE = '/images/projects.png';
-
 export default function Home() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('portfolio_theme') || 'dark';
@@ -38,10 +34,10 @@ export default function Home() {
     <div className={`min-h-screen bg-background text-foreground ${theme === 'light' ? 'light-portfolio' : 'dark-portfolio'}`}>
       <ScrollProgress />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <HeroSection heroImage={HERO_IMAGE} />
-      <AboutSection aboutImage={ABOUT_IMAGE} />
+      <HeroSection />
+      <AboutSection />
       <SkillsSection />
-      <ProjectsSection bgImage={PROJECTS_IMAGE} />
+      <ProjectsSection />
       <CoursesSection />
       <ContactSection />
       <Footer />

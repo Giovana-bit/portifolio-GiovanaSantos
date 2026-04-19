@@ -39,7 +39,6 @@ export default function ProjectModal({ project, onClose }) {
               <img
                 src={project.image_url}
                 alt={project.title}
-                onError={(e) => (e.target.src = "/img/fallback.png")}
                 className="w-full h-full object-cover"
               />
             </div>

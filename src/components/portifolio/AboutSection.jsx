@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Download } from 'lucide-react';
+import perfil from '../../img/perfil.jpg';
 
 export default function AboutSection({ aboutImage }) {
   const ref = useRef(null);
@@ -43,7 +44,7 @@ export default function AboutSection({ aboutImage }) {
             <div className="relative group max-w-sm w-full">
               <div className="aspect-square rounded-sm overflow-hidden bg-secondary border border-border relative">
                 <img
-                  src={photoUrl || "/img/perfil.jpg"}
+                  src={photoUrl || perfil}
                   alt="Profile photo"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />

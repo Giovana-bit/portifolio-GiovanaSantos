@@ -3,11 +3,18 @@ import { motion, useInView } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import ProjectModal from './ProjectModal';
 
+// ✅ IMPORT CORRETO (SEM public)
+import educonnect from '../../img/educonnectpro.png';
+import estoque from '../../img/estoque.png';
+import orcamento from '../../img/orcamento.png';
+import webchat from '../../img/webchat.png';
+import redesocial from '../../img/redesocial.png';
+
 const PROJECTS = [
   {
     id: 1,
     title: 'EduConnect Pro',
-    image_url: '/img/educonnectpro.png',
+    image_url: educonnect,
     description: 'Plataforma educacional completa com autenticação, envio de emails e deploy otimizado.',
     site_url: 'https://www.educonnectpro.com.br/',
     tech_stack: ['React', 'TypeScript', 'Styled-Components', 'Supabase', 'Vercel', 'Resend', 'Cloudflare'],
@@ -15,7 +22,7 @@ const PROJECTS = [
   {
     id: 2,
     title: 'Sistema de Estoque de Veículos',
-    image_url: '/img/estoque.png',
+    image_url: estoque,
     description: 'Sistema para gerenciamento de veículos com controle de estoque e cadastro.',
     repo_url: 'https://github.com/Giovana-bit/CRUD-frontend-sistemaAutomotivo',
     tech_stack: ['HTML', 'JavaScript', 'CSS', 'Java', 'Spring Boot'],
@@ -23,7 +30,7 @@ const PROJECTS = [
   {
     id: 3,
     title: 'Gerador de Orçamento de Aluguel',
-    image_url: '/img/orcamento.png',
+    image_url: orcamento,
     description: 'Aplicação para cálculo automático de orçamentos de aluguel.',
     repo_url: 'https://github.com/Giovana-bit/imobiliariaOrcamento',
     tech_stack: ['Python', 'Flask', 'HTML', 'CSS'],
@@ -31,7 +38,7 @@ const PROJECTS = [
   {
     id: 4,
     title: 'Web Chat',
-    image_url: '/img/webchat.png',
+    image_url: webchat,
     description: 'Chat em tempo real com comunicação instantânea usando WebSockets.',
     repo_url: 'https://github.com/Giovana-bit/web-chat-bd3-2025-2',
     tech_stack: ['Node.js', 'Socket.io', 'Express', 'HTML', 'CSS'],
@@ -39,7 +46,7 @@ const PROJECTS = [
   {
     id: 5,
     title: 'Rede Social com Firestore',
-    image_url: '/img/redesocial.png',
+    image_url: redesocial,
     description: 'Rede social com autenticação e dados em tempo real usando Firebase.',
     repo_url: 'https://github.com/Giovana-bit/bd3-atv-rede-social-firestore-giovana',
     tech_stack: ['Firebase', 'JavaScript', 'HTML', 'CSS'],
@@ -82,24 +89,20 @@ export default function ProjectsSection({ bgImage }) {
                 onClick={() => setSelectedProject(project)}
                 className="group cursor-pointer border rounded-sm overflow-hidden hover:-translate-y-1 transition"
               >
-                {/* Image */}
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={project.image_url}
                     alt={project.title}
-                    onError={(e) => (e.target.src = "/img/fallback.png")}
                     className="w-full h-full object-cover group-hover:scale-105 transition"
                   />
                 </div>
 
-                {/* Content */}
                 <div className="p-4">
                   <div className="flex justify-between items-start">
                     <h3 className="font-bold">{project.title}</h3>
                     <ArrowUpRight className="w-4 h-4 mt-1" />
                   </div>
 
-                  {/* 🔥 TAGS CORRIGIDAS */}
                   <div className="flex flex-wrap gap-1.5 mt-3">
                     {project.tech_stack.slice(0, 3).map((tech, index) => (
                       <span
@@ -123,7 +126,6 @@ export default function ProjectsSection({ bgImage }) {
         </div>
       </section>
 
-      {/* Modal */}
       {selectedProject && (
         <ProjectModal
           project={selectedProject}
