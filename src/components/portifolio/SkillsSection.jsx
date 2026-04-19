@@ -4,7 +4,7 @@ import { useRef } from 'react';
 const SKILL_CATEGORIES = [
   {
     title: 'Linguagens',
-    skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'HTML', 'CSS', 'SQL', 'Python', 'NoSQL'],
+    skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'HTML', 'CSS', 'SQL', 'NoSQL'],
   },
   {
     title: 'Frameworks & Libs',
