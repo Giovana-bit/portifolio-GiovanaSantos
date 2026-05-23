@@ -1,20 +1,32 @@
-import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 const STATUS_LINES = [
-  '> SYSTEM_LOADED',
-  '> NETWORKS_ACTIVE',
-  '> DEV_MODE_ON',
-  '> READY_TO_BUILD',
+  "> SYSTEM_LOADED",
+  "> NETWORKS_ACTIVE",
+  "> DEV_MODE_ON",
+  "> READY_TO_BUILD",
 ];
 
 export default function HeroSection({ heroImage }) {
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center overflow-hidden"
+    >
       {/* Background */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
+          alt="background"
           className="w-full h-full object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/90 to-background" />
@@ -23,7 +35,7 @@ export default function HeroSection({ heroImage }) {
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
+          {/* LEFT */}
           <div>
             <motion.p
               initial={{ opacity: 0, x: -20 }}
@@ -33,6 +45,7 @@ export default function HeroSection({ heroImage }) {
             >
               Portfólio // 2026
             </motion.p>
+
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -43,13 +56,14 @@ export default function HeroSection({ heroImage }) {
               <br />
               <span className="text-primary">Dev</span>
             </motion.h1>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
               className="mt-6 text-muted-foreground text-lg max-w-md leading-relaxed"
             >
-              Estudante de Engenharia de Software & Engenharia da Computação. 
+              Estudante de Engenharia de Software & Engenharia da Computação.
               Técnica em Desenvolvimento de Sistemas & Redes de Computadores.
             </motion.p>
 
@@ -59,21 +73,23 @@ export default function HeroSection({ heroImage }) {
               transition={{ delay: 1 }}
               className="mt-8 flex gap-4"
             >
-              <a
-                href="#projetos"
+              <button
+                onClick={() => scrollToSection("projetos")}
                 className="px-6 py-3 bg-primary text-primary-foreground font-semibold text-sm tracking-wider uppercase rounded-sm hover:bg-primary/90 transition-colors"
               >
                 Ver Projetos
-              </a>
-              <a
-                href="#contato"
+              </button>
+
+              <button
+                onClick={() => scrollToSection("contato")}
                 className="px-6 py-3 border border-primary/30 text-primary font-semibold text-sm tracking-wider uppercase rounded-sm hover:border-primary hover:bg-primary/5 transition-all"
               >
                 Contato
-              </a>
+              </button>
             </motion.div>
           </div>
 
+          {/* RIGHT */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -85,8 +101,11 @@ export default function HeroSection({ heroImage }) {
                 <div className="w-2.5 h-2.5 rounded-full bg-primary/80" />
                 <div className="w-2.5 h-2.5 rounded-full bg-muted-foreground/40" />
                 <div className="w-2.5 h-2.5 rounded-full bg-muted-foreground/40" />
-                <span className="ml-2 text-muted-foreground text-xs">terminal_v2.0</span>
+                <span className="ml-2 text-muted-foreground text-xs">
+                  terminal_v2.0
+                </span>
               </div>
+
               {STATUS_LINES.map((line, i) => (
                 <motion.div
                   key={i}
@@ -98,19 +117,20 @@ export default function HeroSection({ heroImage }) {
                   {line}
                 </motion.div>
               ))}
+
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: [0, 1, 0] }}
                 transition={{ delay: 2.5, duration: 1, repeat: Infinity }}
                 className="py-1 text-muted-foreground"
               >
-                {'> _'}
+                {"> _"}
               </motion.div>
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll indicador */}
+        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
