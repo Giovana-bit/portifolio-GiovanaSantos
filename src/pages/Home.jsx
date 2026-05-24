@@ -32,14 +32,34 @@ export default function Home() {
 
   return (
     <div className={`min-h-screen bg-background text-foreground ${theme === 'light' ? 'light-portfolio' : 'dark-portfolio'}`}>
+      
       <ScrollProgress />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <CoursesSection />
-      <ContactSection />
+
+      <section id="hero">
+        <HeroSection />
+      </section>
+
+      <section id="sobre">
+        <AboutSection />
+      </section>
+
+      <section id="skills">
+        <SkillsSection />
+      </section>
+
+      <section id="projetos">
+        <ProjectsSection />
+      </section>
+
+      <section id="cursos">
+        <CoursesSection />
+      </section>
+
+      <section id="contato">
+        <ContactSection />
+      </section>
+
       <Footer />
     </div>
   );
